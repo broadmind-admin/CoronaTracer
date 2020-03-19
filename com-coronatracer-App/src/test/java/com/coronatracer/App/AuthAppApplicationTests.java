@@ -1,4 +1,4 @@
-package com.accolite.pru.health.AuthApp;
+package com.coronatracer.App;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

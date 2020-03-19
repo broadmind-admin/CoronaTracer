@@ -24,7 +24,7 @@ import com.coronatracer.App.service.CustomUserDetailsService;
 @Profile("!dev")
 @Configuration
 @EnableWebSecurity(debug = true)
-@EnableJpaRepositories(basePackages = "com.accolite.pru.health.AuthApp.repository")
+@EnableJpaRepositories(basePackages = "com.coronatracer.App.repository")
 @EnableGlobalMethodSecurity(
         securedEnabled = true,
         jsr250Enabled = true,
