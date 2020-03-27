@@ -1,12 +1,12 @@
 package com.coronatracer.App.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
+
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.coronatracer.App.model.token.EmailVerificationToken;
 
-import java.util.Optional;
-
-public interface EmailVerificationTokenRepository extends JpaRepository<EmailVerificationToken, Long> {
+public interface EmailVerificationTokenRepository extends MongoRepository<EmailVerificationToken, Long> {
 
     Optional<EmailVerificationToken> findByToken(String token);
 }

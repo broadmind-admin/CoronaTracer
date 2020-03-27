@@ -3,10 +3,11 @@ package com.coronatracer.App;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 @EntityScan(basePackageClasses = {
         AuthAppApplication.class,
         Jsr310JpaConverters.class

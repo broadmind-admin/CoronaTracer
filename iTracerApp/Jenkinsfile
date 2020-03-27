@@ -1,0 +1,20 @@
+node('microservice') {
+    	stage('SCM Checkout'){
+        checkout scm
+    }
+	stage('Mvn package') {
+        sh "mvn clean install -DskipTests=true" 
+    } 
+        
+	stage('Build Docker Image') {
+	sh "docker build -t codelookup ."
+    }
+
+	stage('Run container') {
+	sh 'docker ps -f name=codelookup -q | xargs --no-run-if-empty docker container stop'
+	sh 'docker container ls -a -fname=codelookup -q | xargs -r docker container rm'
+        sh "docker run -d --net=host -p 0.0.0.0:9756:9756 -m 550M -e SPRING_PROFILES_ACTIVE=dev --env SPRING_CLOUD_CONFIG_URI=http://35.228.98.243:8081 --name codelookup -i -t codelookup:latest"
+        echo "docker run successful"
+     }
+ }
+ 

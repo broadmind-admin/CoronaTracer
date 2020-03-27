@@ -1,7 +1,8 @@
 package com.coronatracer.App.model.token;
 
+import java.time.Instant;
+
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
@@ -12,13 +13,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import com.coronatracer.App.model.TokenStatus;
 import com.coronatracer.App.model.User;
 import com.coronatracer.App.model.audit.DateAudit;
 
-import java.time.Instant;
-
-@Entity(name = "EMAIL_VERIFICATION_TOKEN")
+//@Document("EMAIL_VERIFICATION_TOKEN")
 public class EmailVerificationToken extends DateAudit {
 
     @Id
